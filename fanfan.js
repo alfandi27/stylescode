@@ -52,3 +52,18 @@ function copyIn() {
         copyButton.style.color = '';
     }, 2000);
 }
+
+function handleExpired() {
+    const paySection = document.getElementById('pay');
+    const alertSection = document.getElementById('alertz');
+    const expElement = document.getElementById("exp");
+    
+    paySection.style.opacity = '0';
+    setTimeout(() => {
+        paySection.classList.add('d-none');
+        alertSection.classList.remove('d-none');
+        alertSection.classList.add('animate__animated', 'animate__fadeIn');
+        expElement.innerHTML = "EXPIRED";
+        expElement.style.color = '#dc3545';
+    }, 300);
+}
