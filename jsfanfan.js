@@ -32,3 +32,23 @@ function convertCRC16(str) {
     hex = ("000" + hex.toString(16).toUpperCase()).slice(-4);
     return hex;
 }
+
+function copyIn() {
+    var id = "total-bayar";
+    document.getElementById(id).select();
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+    
+    // Animasi feedback pada tombol copy
+    const copyButton = document.querySelector('.copy-button');
+    const originalText = copyButton.innerHTML;
+    copyButton.innerHTML = `<i class="fas fa-check"></i> Tersalin!`;
+    copyButton.style.backgroundColor = '#e8f5e9';
+    copyButton.style.color = '#2e7d32';
+    
+    setTimeout(() => {
+        copyButton.innerHTML = originalText;
+        copyButton.style.backgroundColor = '';
+        copyButton.style.color = '';
+    }, 2000);
+}
